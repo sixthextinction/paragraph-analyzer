@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }} </title>
+</head>
+<body>
+
+<form method="POST">
+{% csrf_token %}
+
+    {{ form.as_p }}
+
+    <input type="submit" value="Analyze!" />
+
+</form>
+
+<!--<form action="{% url 'post_create' %}">-->
+    <!--<textarea cols="80" rows="20" name="input"></textarea>-->
+    <!--<br />-->
+    <!--<input type="submit" value="Count!" />-->
+<!--</form>-->
+
+</body>
+</html>

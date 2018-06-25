@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+
+<a href="{% url 'post_create' %}">Create Post</a>
+
+<h1> List of Analyses </h1>
+
+{% for post in list_of_posts %}
+    <h2> <a href=" {{ post.get_absolute_url }} "> {{ post.title }} </a> </h2>
+    <p> {{ post.input }} </p><br/><br/>
+    <table width="25%" border="1" cellspacing="1" cellpadding="2">
+        <tr>
+            <th>Word</th>
+            <th>Count</th>
+        </tr>
+
+        {% for key, value in post.analysis.items %}
+        <tr>
+            <td>{{ key }} </td>
+            <td>{{ value }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br/><br/>
+{% endfor %}
+
+</body>
+</html>
